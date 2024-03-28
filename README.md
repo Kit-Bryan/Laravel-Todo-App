@@ -14,4 +14,4 @@ This Laravel application serves as a practical demonstration of the Model-View-C
 - MVC Architecture: Understand the separation of concerns within the MVC pattern.
 
 - Blade Templating: Explore how Blade directives simplify view creation.
-Artisan Commands: Leverage Artisan to efficiently generate models and other project components.
+  Artisan Commands: Leverage Artisan to efficiently generate models and other project components.
