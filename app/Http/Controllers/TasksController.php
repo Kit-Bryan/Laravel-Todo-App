@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Task;
@@ -14,10 +13,8 @@ class TasksController extends Controller
         $tasks = Task::orderBy("completed_at")
             ->orderBy("id", "DESC")
             ->get();
-//        return dd($tasks);
-        return view("tasks.index", [
-            "tasks" => $tasks,
-        ]);
+        return $tasks->jsonSerialize();
+
     }
 
     public function create()
@@ -29,28 +26,32 @@ class TasksController extends Controller
     {
         request()->validate([
             'description' => 'required | max:255',
+            'title' => 'required | max:255',
         ]);
         Task::create([
-            "description" => request("description")
+            // Column name => data
+            "description" => request("description"),
+            "title" => request("title"),
         ]);
         return redirect('/');
     }
 
-    public function update($id)
+    public function update()
     {
-        $task = Task::where('id', $id)->first();
+        $task = Task::where('id', request("id"))->first();
         $task->completed_at = now(new DateTimeZone("Asia/Kuala_Lumpur"));
         $task->save();
-
-        return redirect("/");
+//
+//        return redirect("/");
     }
 
-    public function delete($id)
+    public function delete()
     {
+        $id = \request("id");
         $task = Task::where('id', $id)->first();
         $task->delete();
 
-        return redirect("/");
+//        return redirect("/");
     }
 
 }
