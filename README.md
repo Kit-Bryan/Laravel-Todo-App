@@ -1,17 +1,19 @@
-### Laravel Todo App
+### Laravel Todo App (Backend)
 
-This Laravel application serves as a practical demonstration of the Model-View-Controller (MVC) architecture and Blade templating engine. It allows you to create, manage, and view tasks, providing a hands-on introduction to these core Laravel concepts.
+This module provides backend APIs for a TODO application.
 
-### Key Features:
-- Task Creation: Add new tasks using a user-friendly interface.
+### Features:
 
-- Task Management: Edit and delete existing tasks as needed.
+**CRUD Operations:**
+- Create new TODO tasks using POST requests.
+- Retrieve existing TODO tasks using GET requests.
+- Update task details using PATCH requests.
+- Delete tasks using DELETE requests.
 
-- Task Listing: View a comprehensive list of all your tasks.
+**Authentication:**
+Secured with Laravel Breeze and Sanctum.
+Access to API endpoints requires valid authentication tokens.
 
-- CRUD Operations: The application implements Create, Read, Update, and Delete (CRUD) functionalities for tasks.
-
-- MVC Architecture: Understand the separation of concerns within the MVC pattern.
-
-- Blade Templating: Explore how Blade directives simplify view creation.
-  Artisan Commands: Leverage Artisan to efficiently generate models and other project components.
+**Data Persistence:**
+Data management using Eloquent's Object-Relational Mapper (ORM).
+Data is persisted in a database.
